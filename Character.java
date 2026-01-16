@@ -1,19 +1,20 @@
 public abstract class Character {
-    private String name;
-    private int health;
+    protected String name;
+    protected int health;
+    protected int attack;
 
-    public Character() {
-        this("Unknown", 100);
-    }
-
-    public Character(String name, int health) {
+    public Character(String name, int health, int attack) {
         this.name = name;
         this.health = health;
+        this.attack = attack;
     }
 
     public String getName() { return name; }
     public int getHealth() { return health; }
-    public void setHealth(int health) { this.health = health; }
+
+    public void takeDamage(int dmg) {
+        health -= dmg;
+    }
 
     public abstract String talk();
 }
