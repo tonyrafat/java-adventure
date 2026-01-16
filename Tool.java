@@ -1,5 +1,4 @@
 public class Tool extends Item {
-
     public Tool(String name, String desc, int value) {
         super(name, desc, value);
     }
