@@ -1,16 +1,19 @@
 public class Building extends Location {
-
-    public Building() {
-        super("Building", "A generic building.");
-    }
+    private boolean locked = true;
 
     public Building(String name, String description) {
         super(name, description);
     }
 
     @Override
+    public boolean isLocked() { return locked; }
+
+    @Override
+    public void unlock() { locked = false; }
+
+    @Override
     public String onEnter(Player player) {
-        return "You step inside the building.";
+        if (locked) return "The door is locked.";
+        return "You enter the building.";
     }
 }
-
