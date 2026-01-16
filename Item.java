@@ -1,11 +1,11 @@
 public abstract class Item {
-    private String name;
-    private String description;
-    private int value;
+    protected String name;
+    protected String description;
+    protected int value;
 
-    public Item(String name, String description, int value) {
+    public Item(String name, String desc, int value) {
         this.name = name;
-        this.description = description;
+        this.description = desc;
         this.value = value;
     }
 
@@ -14,8 +14,5 @@ public abstract class Item {
     public abstract String use(Player player);
 
     @Override
-    public String toString() {
-        return name;
-    }
+    public String toString() { return name; }
 }
-
