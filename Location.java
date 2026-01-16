@@ -1,42 +1,44 @@
 import java.util.ArrayList;
 
 public class Location {
-    private String name;
-    private String description;
-    private ArrayList<Item> items;
-    private NonPlayerCharacter npc;
-
-    public Location() {
-        this("Empty Street", "Just a normal street.");
-    }
+    protected String name;
+    protected String description;
+    protected ArrayList<Item> items;
+    protected NonPlayerCharacter npc;
 
     public Location(String name, String description) {
         this.name = name;
         this.description = description;
-        this.items = new ArrayList<>();
-        this.npc = null;
+        items = new ArrayList<>();
     }
 
     public String getName() { return name; }
-    public String getDescription() { return description; }
     public NonPlayerCharacter getNpc() { return npc; }
     public void setNpc(NonPlayerCharacter npc) { this.npc = npc; }
 
-    public void addItem(Item item) {
-        items.add(item);
-    }
+    public void addItem(Item item) { items.add(item); }
 
-    public Item takeItemByName(String name) {
-        for (int i = 0; i < items.size(); i++) {
-            if (items.get(i).getName().equalsIgnoreCase(name)) {
+    public Item takeItem(String name) {
+        for (int i = 0; i < items.size(); i++)
+            if (items.get(i).getName().equalsIgnoreCase(name))
                 return items.remove(i);
-            }
-        }
         return null;
     }
 
+    public boolean isLocked() { return false; }
+    public void unlock() {}
+
     public String onEnter(Player player) {
-        return "";
+        int roll = (int)(Math.random() * 100);
+        if (roll < 15) {
+            player.takeDamage(5);
+            return "You get jumped in the street. Lose 5 health.";
+        }
+        if (roll < 30 && npc == null) {
+            npc = new Enemy("Street Thug", 20, 5, "The thug snarls.");
+            return "A thug appears!";
+        }
+        return description;
     }
 
     @Override
@@ -46,5 +48,4 @@ public class Location {
                 "\n" + (npc == null ? "No one is here." : "You see " + npc.getName());
     }
 }
-
     
