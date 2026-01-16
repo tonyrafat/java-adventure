@@ -1,5 +1,4 @@
 public class Treasure extends Item {
-
     public Treasure(String name, String desc, int value) {
         super(name, desc, value);
     }
@@ -9,4 +8,3 @@ public class Treasure extends Item {
         return "It's valuable!";
     }
 }
-
