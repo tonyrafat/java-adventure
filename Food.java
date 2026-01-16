@@ -8,8 +8,8 @@ public class Food extends Item {
 
     @Override
     public String use(Player player) {
-        player.setHealth(player.getHealth() + heal);
-        return "You eat the food and feel better.";
+        player.health += heal;
+        return "You eat the food and regain health.";
     }
 }
 
