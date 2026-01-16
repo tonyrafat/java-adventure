@@ -1,8 +1,8 @@
 public class NonPlayerCharacter extends Character {
-    private String dialogue;
+    protected String dialogue;
 
-    public NonPlayerCharacter(String name, int health, String dialogue) {
-        super(name, health);
+    public NonPlayerCharacter(String name, int health, int attack, String dialogue) {
+        super(name, health, attack);
         this.dialogue = dialogue;
     }
 
