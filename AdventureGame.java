@@ -111,4 +111,3 @@ public class AdventureGame {
         System.out.println(" quit");
     }
 }
-
