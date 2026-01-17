@@ -11,5 +11,4 @@ public class Food extends Item {
         player.health += heal;
         return "You eat the food and regain health.";
     }
-}
 
