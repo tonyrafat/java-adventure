@@ -8,4 +8,3 @@ public class Tool extends Item {
         return "You use the tool.";
     }
 }
-
