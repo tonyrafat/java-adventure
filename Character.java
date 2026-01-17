@@ -18,4 +18,3 @@ public abstract class Character {
 
     public abstract String talk();
 }
-
